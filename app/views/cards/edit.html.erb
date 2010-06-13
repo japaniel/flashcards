@@ -1,0 +1,8 @@
+<h1>Editing card</h1>
+
+<%= error_messages_for :cards %>
+
+<%= render :partial => @card, :locals => { :button_name => "Edit" } %>
+
+<%= link_to 'Show', [@collection, @card] %> |
+<%= link_to 'Back', collection_path(@collection) %>

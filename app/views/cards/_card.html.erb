@@ -1,0 +1,17 @@
+<% form_for [@collection, @card] do |f| -%>
+  <p>
+    <%= f.label :collection_id %><br />
+    <%= f.text_field :collection_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end -%>

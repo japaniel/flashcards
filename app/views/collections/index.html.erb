@@ -1,0 +1,24 @@
+
+<h1>Listing collections or sets of cards</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+
+<% @collections.each do |collection| %>
+  <tr>
+    
+    <td><%=h link_to collection.title, collection_path(collection), :class => 'link', :id => 'link' %></td>
+    <td><%=h link_to collection.description, collection_path(collection) %></td>
+    <td><%=h link_to collection.cards.count, collection_path(collection) %></td>
+    <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
+    <td><%= link_to 'Delete', collection, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '+', new_collection_path %>

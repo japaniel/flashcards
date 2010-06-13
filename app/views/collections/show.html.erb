@@ -1,0 +1,32 @@
+<p>
+  <h1><%=h link_to @collection.title, edit_collection_path(@collection) %></h1>
+</p>
+
+<p>
+  <h3><%=h link_to @collection.description, edit_collection_path(@collection) %></h3>
+</p>
+
+
+<% unless @collection.cards.empty? %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+
+
+  <% @collection.cards.each do |card| %>
+    <tr>
+      <td><%=h link_to card.title, collection_card_path(@collection, card) %></td>
+      <td><%=h link_to card.body, collection_card_path(@collection, card) %></td>
+      <td><%= link_to 'Edit', edit_collection_card_path(@collection, card), :method => :get %></td>
+      <td><%= link_to 'Delete', :controller => 'cards', :action => 'destroy', :id => [@controller, card] %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<p>
+<%= link_to '+', new_collection_card_path(@collection) %> |
+<%= link_to 'Back', collections_path %>
+</p>

@@ -1,0 +1,18 @@
+<p>
+  <b>Collection:</b>
+  <%=h @collection.title %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @card.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @card.body %>
+</p>
+
+
+<%= link_to 'Edit', [:edit, @collection, @card] %> |
+<%= link_to 'Back', collection_path(@collection) %>

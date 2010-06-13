@@ -1,0 +1,22 @@
+<h1><%=h @collection.title %></h1>
+
+<%= link_to 'Back to Collections', collections_path %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+
+<% @cards.each do |card| %>
+  <tr>
+    <td><%= link_to card.title, [@collection, card] %></td>
+    <td><%=h link_to card.body, edit_collection_card_path(@collection,card) %></td>
+    <td><%= link_to 'Delete', [@collection, @card], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '+', new_collection_card_path(@collection) %>
